@@ -17,7 +17,7 @@ The left figure presents PSFT applied to Qwen2.5-7B-Instruct, whereas the right 
   <img src="./img/llama-entropy.png" alt="LLama3.1-8B-Instruct" width="45%"/>
 </p>
 
-## 2. Superious Performance
+## 2. Superior Performance
 
 <p align="center">
   <img src="./img/qwen-acc.png" alt="Qwen2.5-7B-Instruct" width="45%"/>
