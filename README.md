@@ -32,7 +32,7 @@ Wenhong Zhu<sup>1,2</sup>, Ruobing Xie<sup>3</sup>, Rui Wang<sup>1,2</sup>, Xing
   <img src="./img/llama-gpqa.png" alt="图2" width="45%"/>
 </p>
 
-## 4. Promising start point for RL 
+## 4. A promising start point for RL 
 
 <p align="center">
   <img src="./img/qwen_rl_acc.png" alt="图1" width="45%"/>
