@@ -9,34 +9,34 @@ Wenhong Zhu<sup>1,2</sup>, Ruobing Xie<sup>3</sup>, Rui Wang<sup>1,2</sup>, Xing
 </div>
 
 # 📖 Overview
-
+The left figure presents PSFT applied to Qwen2.5-7B-Instruct, whereas the right corresponds to Llama3.1-8B-Instruct.
 
 ## 1. No entropy collapse
 <p align="center">
-  <img src="./img/qwen_entropy.png" alt="图1" width="45%"/>
-  <img src="./img/llama-entropy.png" alt="图2" width="45%"/>
+  <img src="./img/qwen_entropy.png" alt="Qwen2.5-7B-Instruct" width="45%"/>
+  <img src="./img/llama-entropy.png" alt="LLama3.1-8B-Instruct" width="45%"/>
 </p>
 
 ## 2. Superious Performance
 
 <p align="center">
-  <img src="./img/qwen-acc.png" alt="图1" width="45%"/>
-  <img src="./img/llama-acc.png" alt="图2" width="45%"/>
+  <img src="./img/qwen-acc.png" alt="Qwen2.5-7B-Instruct" width="45%"/>
+  <img src="./img/llama-acc.png" alt="LLama3.1-8B-Instruct" width="45%"/>
 </p>
 
 
 ## 3. Generalization
 
 <p align="center">
-  <img src="./img/qwen_gpqa.png" alt="图1" width="45%"/>
-  <img src="./img/llama-gpqa.png" alt="图2" width="45%"/>
+  <img src="./img/qwen_gpqa.png" alt="Qwen2.5-7B-Instruct" width="45%"/>
+  <img src="./img/llama-gpqa.png" alt="LLama3.1-8B-Instruct" width="45%"/>
 </p>
 
 ## 4. A promising start point for RL 
 
 <p align="center">
-  <img src="./img/qwen_rl_acc.png" alt="图1" width="45%"/>
-  <img src="./img/llama-rl-acc.png" alt="图2" width="45%"/>
+  <img src="./img/qwen_rl_acc.png" alt="Qwen2.5-7B-Instruct" width="45%"/>
+  <img src="./img/llama-rl-acc.png" alt="LLama3.1-8B-Instruct" width="45%"/>
 </p>
 
 
@@ -59,10 +59,16 @@ pip install --no-deps -e .
 
 # 🚀 Quick Start
 
-## Prepare Data
+## Prepare Train Data
+
+`python ./prepare_data.py`
+
+You can modify this file to support your PSFT dataset, ensuring that the key r1 is retained in the parquet.
 
 
 ## Training
+
+We provide the recipe within the verl framework.
 
 ## Evaluation
 
