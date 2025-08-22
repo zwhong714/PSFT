@@ -43,6 +43,31 @@ The left figure presents PSFT applied to Qwen2.5-7B-Instruct, whereas the right 
 **For a more detailed and comprehensive evaluation, please refer to our paper.**
 
 
+# 🧸 A Toy Example
+
+We apply both SFT and PSFT on **Qwen2.5-7B-Instruct** using the **LIMO** dataset.
+
+<p align="center">
+  <img src="./img/limo_entropy.png" alt="Qwen2.5-7B-Instruct" width="45%"/>
+  <img src="./img/limo_acc.png" alt="LLama3.1-8B-Instruct" width="45%"/>
+</p>
+
+We select the best in-domain checkpoint (216 steps, 18 epochs) and evaluate it on multiple benchmarks. Evaluation is reported with **Avg\@32**, while generation is conducted at **32k** context length.
+
+| Qwen2.5-7B-Instruct | AIME-24   | AIME-25   | AMC       |
+| ------------------- | --------- | --------- | --------- |
+| SFT                 | 14.69     | 15.42     | 56.64     |
+| PSFT                | **15.94** | **18.13** | **58.05** |
+
+| Qwen2.5-7B-Instruct | GPQA      | MMLU-Pro  |
+| ------------------- | --------- | --------- |
+| SFT                 | 35.80     | 46.50     |
+| PSFT                | **38.89** | **51.28** |
+
+**Conclusion.** PSFT consistently outperforms standard SFT across both in-domain and out-of-domain benchmarks. Importantly, it maintains stable entropy throughout training—whereas standard SFT rapidly collapses to near-zero entropy after ~150 steps—thereby preserving diversity in generation and providing a stronger foundation for subsequent RL-based optimization.
+
+
+
 # ⚒️ Installation
 
 torch2.6.0+cu124+vllm0.8.5
