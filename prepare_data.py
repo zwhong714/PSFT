@@ -27,7 +27,7 @@ def process_fn_train(example, idx):
             'split': 'train',
             'index': idx,
         },
-        "r1": example['target'][0]['content']
+        "demostration": example['target'][0]['content']
     }
     return data
 

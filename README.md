@@ -100,7 +100,7 @@ You can modify this file to support your PSFT dataset, ensuring that the key `de
 
 ## Training
 
-We provide the recipe within the verl framework.
+We provide the implementation within the verl framework; see `PSFT/verl/recipe/psft`.
 
 ## Evaluation
 
