@@ -95,7 +95,7 @@ pip install --no-deps -e .
 
 `python ./prepare_data.py`
 
-You can modify this file to support your PSFT dataset, ensuring that the key r1 is retained in the parquet.
+You can modify this file to support your PSFT dataset, ensuring that the key `demostration` is retained in the parquet.
 
 
 ## Training
