@@ -5,10 +5,13 @@ Wenhong Zhu<sup>1,2</sup>, Ruobing Xie<sup>3</sup>, Rui Wang<sup>1,2</sup>, Xing
 
 <sup>1</sup> SJTU,   <sup>2</sup>SII, <sup>3</sup>Tencent, <sup>4</sup>UM
 
-[<a href="https://github.com/zwhong714/PSFT">Paper</a>] | [<a href="https://github.com/zwhong714/PSFT">Code</a>] | [<a href="https://huggingface.co/wh-zhu">Model</a>]
+[<a href="https://arxiv.org/abs/2508.17784">Paper</a>] | [<a href="https://github.com/zwhong714/PSFT">Code</a>] | [<a href="https://huggingface.co/wh-zhu">Model</a>]
 </div>
 
 # 📖 Overview
+Inspired by trust-region policy optimization (TRPO) and proximal policy optimization (PPO) in reinforcement learning (RL), we propose Proximal SFT (PSFT). This fine-tuning objective incorporates the benefits of trust-region, effectively constraining policy drift during SFT while maintaining competitive tuning. By viewing SFT as a special case of policy gradient methods with constant positive advantages, we derive PSFT that stabilizes optimization and leads to generalization, while leaving room for further optimization in subsequent post-training stages.
+
+
 The left figure presents PSFT applied to Qwen2.5-7B-Instruct, whereas the right corresponds to Llama3.1-8B-Instruct.
 
 ## 1. No entropy collapse
