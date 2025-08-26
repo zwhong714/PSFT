@@ -1,11 +1,15 @@
 <div align="center">
 <h1>Proximal Supervised Fine-Tuning
 </h1>
-Wenhong Zhu<sup>1,2</sup>, Ruobing Xie<sup>3</sup>, Rui Wang<sup>1,2</sup>, Xingwu Sun <sup>3,4</sup>, Di Wang<sup>3</sup>,  Pengfei Liu <sup>1,2</sup>
 
-<sup>1</sup> SJTU,   <sup>2</sup>SII, <sup>3</sup>Tencent, <sup>4</sup>UM
 
-[<a href="https://arxiv.org/abs/2508.17784">Paper</a>] | [<a href="https://github.com/zwhong714/PSFT">Code</a>] | [<a href="https://huggingface.co/wh-zhu">Model</a>]
+[<img src="https://img.icons8.com/emoji/48/000000/open-book-emoji.png" width="18" style="vertical-align:middle; margin-right:6px"/> <u>Paper</u>](https://arxiv.org/abs/2508.17784) |
+[<img src="https://img.icons8.com/material-outlined/24/000000/github.png" width="18" style="vertical-align:middle; margin-right:6px"/> <u>Code</u>](https://github.com/zwhong714/PSFT) |
+[<img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" width="18" style="vertical-align:middle; margin-right:6px"/> <u>Model</u>](https://huggingface.co/wh-zhu)
+
+
+
+
 </div>
 
 # 📖 Overview
