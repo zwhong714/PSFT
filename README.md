@@ -5,7 +5,7 @@
 
 [<img src="https://img.icons8.com/emoji/48/000000/open-book-emoji.png" width="18" style="vertical-align:middle; margin-right:6px"/> <u>Paper</u>](https://arxiv.org/abs/2508.17784) |
 [<img src="https://img.icons8.com/material-outlined/24/000000/github.png" width="18" style="vertical-align:middle; margin-right:6px"/> <u>Code</u>](https://github.com/zwhong714/PSFT) |
-[<img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" width="18" style="vertical-align:middle; margin-right:6px"/> <u>Model</u>](https://huggingface.co/wh-zhu)
+[<img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" width="18" style="vertical-align:middle; margin-right:6px"/> <u>Model</u>](https://huggingface.co/collections/wh-zhu/psft-68afb02eb237149f9bd9075e)
 
 
 
