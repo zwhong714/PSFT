@@ -334,7 +334,7 @@ class vLLMRollout(BaseRollout):
         # users can customize different sampling_params at different run
         with self.update_sampling_params(**kwargs):
             
-            if 'demostration' not in non_tensor_batch:
+            if 'demonstration' not in non_tensor_batch:
                 outputs = self.inference_engine.generate(
                     prompts=vllm_inputs,  # because we have already convert it to prompt token id
                     sampling_params=self.sampling_params,
@@ -362,7 +362,7 @@ class vLLMRollout(BaseRollout):
                 )
             else:
                 
-                outputs = non_tensor_batch['demostration']
+                outputs = non_tensor_batch['demonstration']
                 # outputs = non_tensor_batch['solution']
                 response = []
                 rollout_log_probs = []

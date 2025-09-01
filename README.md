@@ -95,7 +95,9 @@ pip install --no-deps -e .
 
 `python ./prepare_data.py`
 
-You can modify this file to support your PSFT dataset, ensuring that the key `demonstration` is retained in the parquet.
+You can modify this file to support your PSFT training dataset, ensuring that the key demonstration is retained in the training parquet. It is not necessary for the test parquet.
+
+We provide the training dataset in [wh-zhu/train_openr1_4k](https://huggingface.co/datasets/wh-zhu/train_openr1_4k) and the test dataset in [wh-zhu/aime-24](https://huggingface.co/datasets/wh-zhu/aime-24).
 
 
 ## Training
@@ -110,4 +112,15 @@ serve run eval.llm:build_app model=aaa/bbb/ccc tensor-parallel-size=1
 
 # open another terminal
 python eval/eval.py --temperature 0.7 --top_p 0.95 --max_tokens 10240 --model ccc --test_file eval/data/aime-2024.parquet
+```
+
+
+## Citation
+```
+@article{zhu2025proximal,
+  title={Proximal Supervised Fine-Tuning},
+  author={Zhu, Wenhong and Xie, Ruobing and Wang, Rui and Sun, Xingwu and Wang, Di and Liu, Pengfei},
+  journal={arXiv preprint arXiv:2508.17784},
+  year={2025}
+}
 ```

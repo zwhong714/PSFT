@@ -3,7 +3,7 @@ set -xeuo pipefail
 export WANDB_MODE=offline
 
 project_name='PSFT'
-exp_name='Qwen2.5-7B-Instruct-LIMO-PSFT'
+exp_name='Qwen2.5-7B-Instruct-OpenR1-4k-PSFT'
 
 adv_estimator=psft
 
@@ -16,7 +16,7 @@ clip_ratio_low=0.2
 clip_ratio_high=0.28
 
 max_prompt_length=$((1024 * 2))
-max_response_length=$((1024 * 36))
+max_response_length=$((1024 * 6))
 enable_overlong_buffer=False
 overlong_buffer_len=$((1024 * 2))
 overlong_penalty_factor=1.0
@@ -26,9 +26,9 @@ loss_agg_mode="token-mean"
 enable_filter_groups=False
 filter_groups_metric=acc
 max_num_gen_batches=20
-train_prompt_bsz=64
+train_prompt_bsz=256
 gen_prompt_bsz=$((train_prompt_bsz * 1)) # NOTE: no filtering here
-train_prompt_mini_bsz=8
+train_prompt_mini_bsz=32
 n_resp_per_prompt=1
 
 # Ray
@@ -41,11 +41,11 @@ NGPUS_PER_NODE=${NGPUS_PER_NODE:-4}
 # NNODES=${NNODES:-16}
 # Paths
 
-RAY_DATA_HOME=${RAY_DATA_HOME:-"PSFT/verl"}
-MODEL_PATH=${MODEL_PATH:-"YOUR_MODEL_PATH"}
+RAY_DATA_HOME=${RAY_DATA_HOME:-"./"}
+MODEL_PATH=${MODEL_PATH:-"Qwen/Qwen2.5-7B-Instruct"}
 CKPTS_DIR=${CKPTS_DIR:-"${RAY_DATA_HOME}/ckpts/${project_name}/${exp_name}"}
-TRAIN_FILE=${TRAIN_FILE:-"YOUR_TRAIN_DATA_PATH"}
-TEST_FILE=${TEST_FILE:-"YOUR_EVAL_DATA_PATH"}
+TRAIN_FILE=${TRAIN_FILE:-"wh-zhu/train_openr1_4k"}
+TEST_FILE=${TEST_FILE:-"wh-zhu/aime-24"}
 
 # Algorithm
 temperature=1.0
@@ -102,7 +102,7 @@ python3 -m recipe.psft.main_psft \
     actor_rollout_ref.actor.grad_clip=1.0 \
     actor_rollout_ref.actor.loss_agg_mode=${loss_agg_mode} \
     actor_rollout_ref.actor.ulysses_sequence_parallel_size=${sp_size} \
-    actor_rollout_ref.rollout.gpu_memory_utilization=0.85 \
+    actor_rollout_ref.rollout.gpu_memory_utilization=0.80 \
     actor_rollout_ref.rollout.tensor_model_parallel_size=${gen_tp} \
     actor_rollout_ref.rollout.enable_chunked_prefill=True \
     actor_rollout_ref.rollout.max_num_batched_tokens=$((max_prompt_length + max_response_length)) \
@@ -127,8 +127,8 @@ python3 -m recipe.psft.main_psft \
     trainer.n_gpus_per_node=8 \
     trainer.nnodes="${NNODES}" \
     trainer.val_before_train=False \
-    trainer.test_freq=12 \
-    trainer.save_freq=12 \
-    trainer.total_epochs=25 \
+    trainer.test_freq=100 \
+    trainer.save_freq=100 \
+    trainer.total_epochs=10 \
     trainer.default_local_dir="${CKPTS_DIR}" \
     trainer.resume_mode=auto  | tee ${exp_name}1.log

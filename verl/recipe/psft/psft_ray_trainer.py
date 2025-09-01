@@ -130,7 +130,7 @@ class RayPSFTTrainer(RayPPOTrainer):
                 else:
                     gen_batch = new_batch.pop(
                         batch_keys=["input_ids", "attention_mask", "position_ids"],
-                        non_tensor_batch_keys=["raw_prompt_ids", "demostration"],
+                        non_tensor_batch_keys=["raw_prompt_ids", "demonstration"],
                     )
                 gen_batch = gen_batch.repeat(repeat_times=self.config.actor_rollout_ref.rollout.n, interleave=True)
 
