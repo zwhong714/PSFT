@@ -10,7 +10,6 @@ train_data = load_dataset("Elliott/Openr1-Math-46k-8192", split='train')
 
 def process_fn_train(example, idx):
     data = {
-        "data_source": "lighteval/MATH",
         "prompt": [
             {
                 "role": "system",
@@ -21,12 +20,6 @@ def process_fn_train(example, idx):
                 "content": example["prompt"][1]['content']
             },                
         ],
-        "ability": "math",
-        "reward_model": example['reward_model'],
-        "extra_info": {
-            'split': 'train',
-            'index': idx,
-        },
         "demonstration": example['target'][0]['content']
     }
     return data
