@@ -3,7 +3,7 @@ set -xeuo pipefail
 export WANDB_MODE=offline
 
 project_name='PSFT'
-exp_name='Qwen2.5-7B-Instruct-OpenR1-4k-PSFT'
+exp_name='Qwen2.5-7B-Instruct-OpenR1-4k-SFT'
 
 adv_estimator=psft
 
@@ -26,7 +26,7 @@ loss_agg_mode="token-mean"
 
 train_prompt_bsz=256
 gen_prompt_bsz=$((train_prompt_bsz * 1))
-train_prompt_mini_bsz=32
+train_prompt_mini_bsz=256
 n_resp_per_prompt=1
 
 # Ray
@@ -87,7 +87,7 @@ python3 -m recipe.psft.main_psft \
     actor_rollout_ref.rollout.log_prob_max_token_len_per_gpu=${infer_ppo_max_token_len} \
     actor_rollout_ref.model.path="${MODEL_PATH}" \
     actor_rollout_ref.model.enable_gradient_checkpointing=True \
-    actor_rollout_ref.actor.optim.lr=1e-6 \
+    actor_rollout_ref.actor.optim.lr=2e-5 \
     actor_rollout_ref.actor.optim.lr_warmup_steps=10 \
     actor_rollout_ref.actor.optim.weight_decay=0.1 \
     actor_rollout_ref.actor.ppo_mini_batch_size=${train_prompt_mini_bsz} \
